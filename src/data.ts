@@ -1,16 +1,18 @@
 import { Scene, Sprite, SpriteSheet } from "kontra";
 import { HEIGHT, WIDTH } from "./constants";
 
-console.log('3. Data');
+console.log("3. Data");
 
-function makeElement<T>(el: string) { return document.createElement(el) as T };
-const makeImage = () => makeElement<HTMLImageElement>('img');
+function makeElement<T>(el: string) {
+  return document.createElement(el) as T;
+}
+const makeImage = () => makeElement<HTMLImageElement>("img");
 
 type Data = {
-  sounds: Record<string, Array<number | undefined>>
+  sounds: Record<string, Array<number | undefined>>;
   elements: {
-    body: HTMLElement,
-    canvas: HTMLCanvasElement
+    body: HTMLElement;
+    canvas: HTMLCanvasElement;
   };
   scenes: Record<string, Scene>;
   labels: Record<string, string>;
@@ -82,7 +84,7 @@ function initData(): Data {
       stars: Scene({ id: labels.stars }),
       end: Scene({ id: labels.end }),
       communication: Scene({ id: labels.communication }),
-      fear: Scene({ id: labels.fear })
+      fear: Scene({ id: labels.fear }),
     },
     labels,
     images: {
@@ -146,7 +148,7 @@ function initData(): Data {
       restart: Sprite(),
       story: Sprite(),
       hardcore: Sprite(),
-      sectors: {}
+      sectors: {},
     },
     // Index 0 & 1 are bounds for RNG. Index 2 is first sector powerup is found.
     powerupprobability: {
@@ -157,30 +159,39 @@ function initData(): Data {
       wingbomb: [90, 95, 8],
       shield: [100, 120, 2],
       extralife: [130, 135, 6],
-    }
-  }
+    },
+  };
 }
 
-const data = { ...initData() }
+const data = { ...initData() };
 
 function initCalculations(c: HTMLCanvasElement) {
   data.calculations.canvasRatioWidth = c.offsetWidth / WIDTH;
   data.calculations.canvasRatioHeight = c.offsetHeight / HEIGHT;
-  data.calculations.canvasAdjustLeft = c.offsetLeft / data.calculations.canvasRatioWidth;
-  data.calculations.canvasAdjustRight = c.offsetTop / data.calculations.canvasRatioHeight;
-  data.calculations.canvasMaxHeight = data.elements.canvas.offsetHeight / data.calculations.canvasRatioHeight;
-  data.calculations.canvasMaxWidth = data.elements.canvas.offsetWidth / data.calculations.canvasRatioWidth;
+  data.calculations.canvasAdjustLeft =
+    c.offsetLeft / data.calculations.canvasRatioWidth;
+  data.calculations.canvasAdjustRight =
+    c.offsetTop / data.calculations.canvasRatioHeight;
+  data.calculations.canvasMaxHeight =
+    data.elements.canvas.offsetHeight / data.calculations.canvasRatioHeight;
+  data.calculations.canvasMaxWidth =
+    data.elements.canvas.offsetWidth / data.calculations.canvasRatioWidth;
 }
 function initElements(c: HTMLCanvasElement, b: HTMLElement) {
   data.elements.canvas = c;
   data.elements.body = b;
 }
 function adjustedX(x: number) {
-  return (x / data.calculations.canvasRatioWidth) - data.calculations.canvasAdjustLeft
+  return (
+    x / data.calculations.canvasRatioWidth - data.calculations.canvasAdjustLeft
+  );
 }
 
 function adjustedY(y: number) {
-  return (y / data.calculations.canvasRatioHeight) - data.calculations.canvasAdjustRight
+  return (
+    y / data.calculations.canvasRatioHeight -
+    data.calculations.canvasAdjustRight
+  );
 }
 
-export { data, initCalculations, initElements, adjustedX, adjustedY }
+export { data, initCalculations, initElements, adjustedX, adjustedY };

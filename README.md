@@ -1,45 +1,83 @@
 # SECTOR 13
 
-2024 [js13kgames competition](https://js13kgames.com/) entry.
+SECTOR 13 is a hectic space shooter built for Mobile and Desktop devices.
+Touch/Click and drag to move your ship.
 
-Built on [this starter package](https://github.com/codyebberson/js13k-starter-2023).
+## Story
 
-### Install
+Commander, it is all up to us!
 
-After cloning, install:
+Thirteen sectors and untold legions of enemy ships...
 
-```bash
-npm i
+All that stands between us and our final victory...
+
+We are scared, but our fear makes us strong!
+
+We are scared, but we have faith in your abilities!
+
+We are scared, but we will emerge victorious!
+
+## Contributing
+
+### Installing Dependencies
+
+After cloning this repo, install dependecies:
+
 ```
-Then run:
-
-```bash
-npm run dev
-```
-
-And create a final production build:
-
-```bash
-npm run build
-```
-
-After building, you can preview the production build with Vite's built-in server:
-
-```bash
-npm run preview
+pnpm i
 ```
 
-## Acknowledgements
+### Checking code format
+
+```
+pnpm check
+```
+
+### Testing the app in the browser
+
+To test your work in your browser (with hot reloading!) while developing:
+
+```
+pnpm start
+# Alternatively to test in a more advanced WebXDC emulator:
+pnpm emulator
+```
+
+### Building
+
+To package the WebXDC file:
+
+```
+pnpm build
+```
+
+To package the WebXDC with developer tools inside to debug in Delta Chat, set the `NODE_ENV`
+environment variable to "debug":
+
+```
+NODE_ENV=debug pnpm build
+```
+
+The resulting optimized `.xdc` file is saved in `dist-xdc/` folder.
+
+### Releasing
+
+To automatically build and create a new GitHub release with the `.xdc` file:
+
+```
+git tag -a v1.0.1
+git push origin v1.0.1
+```
+
+## Credits
+
+- This is a port to Webxdc of [SECTOR-13](https://github.com/BenjaminWFox/Sector-13-Js13k-2024) originally written by [BenjaminWFox](https://github.com/BenjaminWFox) for [js13k 2024](https://js13kgames.com/) game jam
+
+### Acknowledgements
 
 [Frank Force](https://twitter.com/KilledByAPixel) for [ZzFX](https://github.com/KilledByAPixel/ZzFX)
 
 [Keith Clark](https://twitter.com/keithclarkcouk) and [Frank Force](https://twitter.com/KilledByAPixel) for [ZzFXM](https://keithclark.github.io/ZzFXM/)
-
-[Kang Seonghoon](https://mearie.org/) for [Roadroller](https://lifthrasiir.github.io/roadroller/)
-
-[Rob Louie](https://github.com/roblouie) for Roadroller configuration recommendations
-
-[Salvatore Previti](https://github.com/SalvatorePreviti) for Terser configuration recommendations
 
 [Kenney](https://kenney.nl/) for [Pixel Platformer](https://kenney.nl/assets/pixel-platformer) graphics
 

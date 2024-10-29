@@ -1,0 +1,8 @@
+dist
+dist-xdc
+pnpm-lock.yaml
+
+src/data.ts
+src/music.ts
+src/zzfx.ts
+src/zzfxm.ts

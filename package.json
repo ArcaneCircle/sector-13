@@ -1,23 +1,22 @@
 {
-  "name": "js13k-starter",
-  "type": "module",
-  "version": "0.0.1",
+  "private": true,
   "license": "MIT",
-  "main": "src/index.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "biome lint ."
+    "start": "vite --port 3000",
+    "emulator": "concurrently \"npm start\" \"webxdc-dev run http://localhost:3000\"",
+    "fix": "prettier --write .",
+    "check": "prettier --check .",
+    "build": "vite build"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "js13k-vite-plugins": "0.3.4",
-    "terser": "5.31.1",
-    "typescript": "5.5.3",
-    "vite": "5.3.3"
+    "concurrently": "^9.0.1",
+    "prettier": "^3.3.3",
+    "vite": "^5.3.3",
+    "webxdc-dev": "^0.17.0",
+    "webxdc-vite-plugins": "github:webxdc/webxdc-vite-plugins"
   },
   "dependencies": {
-    "kontra": "^9.0.0"
+    "kontra": "^9.0.0",
+    "webxdc-scores": "github:webxdc/webxdc-scores#v2.0.2"
   }
 }

@@ -1,9 +1,9 @@
-import { GameLoop } from "kontra"
-import { SCALE } from "./constants"
-import { Sector } from "./sectorManager"
+import { GameLoop } from "kontra";
+import { SCALE } from "./constants";
+import { Sector } from "./sectorManager";
 // import { sectors } from "./sectorManager"
 
-console.log('2. State');
+console.log("2. State");
 
 const state = {
   // The android phone I tested on seemed to run at 2x speed, making lvl 11 impossible.
@@ -27,7 +27,7 @@ const state = {
   scoreMult: 1,
   invulnerableAt: -500,
   invulnerable: false,
-  invulnableralFlash: .1,
+  invulnableralFlash: 0.1,
   gameOver: false,
   powerups: {
     wingshot: false,
@@ -43,13 +43,13 @@ const state = {
   rofAdjust: 0,
   rngAdjust: 0,
   hardcore: false,
-}
+};
 
 function resetPowerups() {
   state.scoreMult = 1;
   Object.keys(state.powerups).forEach((key) => {
     state.powerups[key as keyof typeof state.powerups] = false;
-  })
+  });
 }
 
-export { state, resetPowerups }
+export { state, resetPowerups };

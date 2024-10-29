@@ -1,5 +1,5 @@
-console.log('\n-------------------- Starting Here --------------------')
-console.log('1. Constants');
+console.log("\n-------------------- Starting Here --------------------");
+console.log("1. Constants");
 
 export const WIDTH = 1500;
 export const HEIGHT = 2660;

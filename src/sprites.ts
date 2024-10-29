@@ -6,42 +6,46 @@ import {
   Sprite,
   SpriteClass,
   SpriteSheet,
-} from 'kontra';
-import playerShipPath from './assets/images/player-ship.gif';
-import enemyBlueOnePath from './assets/images/enemy-ship.gif';
-import enemyGreenPath from './assets/images/enemyGreen.gif';
-import enemyYellowOnePath from './assets/images/enemyYellowOne.gif';
-import enemyYellowTwoPath from './assets/images/enemyYellowTwo.gif';
-import enemyPinkPath from './assets/images/enemyPink.gif';
-import enemyBlueTwoPath from './assets/images/enemyBlueTwo.gif';
-import enemyBulletPath from './assets/images/enemyBullet.gif';
-import enemyBombPath from './assets/images/enemyBomb.gif';
-import lettersBoldPath from './assets/images/lettersBold3.gif';
-import numbersBoldPath from './assets/images/numbersBold.gif';
-import lettersPath from './assets/images/letters.gif';
-import lettersFullPath from './assets/images/lettersFull.gif';
-import numbersPath from './assets/images/numbers2.gif';
-import explosionPath from './assets/images/explosion.gif';
-import powerupPath from './assets/images/powerups.gif';
-import shieldPath from './assets/images/shield.png';
-import { SCALE, WIDTH } from './constants';
-import { data, Enemies } from './data';
-import { state } from './state';
-import { sfx } from './music';
-import { enemyProjectileManager, scoreDisplayManager, scoreMultDisplayManager } from './spriteManager';
+} from "kontra";
+import playerShipPath from "./assets/images/player-ship.gif";
+import enemyBlueOnePath from "./assets/images/enemy-ship.gif";
+import enemyGreenPath from "./assets/images/enemyGreen.gif";
+import enemyYellowOnePath from "./assets/images/enemyYellowOne.gif";
+import enemyYellowTwoPath from "./assets/images/enemyYellowTwo.gif";
+import enemyPinkPath from "./assets/images/enemyPink.gif";
+import enemyBlueTwoPath from "./assets/images/enemyBlueTwo.gif";
+import enemyBulletPath from "./assets/images/enemyBullet.gif";
+import enemyBombPath from "./assets/images/enemyBomb.gif";
+import lettersBoldPath from "./assets/images/lettersBold3.gif";
+import numbersBoldPath from "./assets/images/numbersBold.gif";
+import lettersPath from "./assets/images/letters.gif";
+import lettersFullPath from "./assets/images/lettersFull.gif";
+import numbersPath from "./assets/images/numbers2.gif";
+import explosionPath from "./assets/images/explosion.gif";
+import powerupPath from "./assets/images/powerups.gif";
+import shieldPath from "./assets/images/shield.png";
+import { SCALE, WIDTH } from "./constants";
+import { data, Enemies } from "./data";
+import { state } from "./state";
+import { sfx } from "./music";
+import {
+  enemyProjectileManager,
+  scoreDisplayManager,
+  scoreMultDisplayManager,
+} from "./spriteManager";
 
-console.log('7. Sprites');
+console.log("7. Sprites");
 
 const loaded = [];
 const totalLoads = 17;
 
 function makeSprites(startFn: () => void) {
-  console.log('10. Window Loaded');
+  console.log("10. Window Loaded");
   function checkLoaded(loadedImage: HTMLImageElement) {
     loaded.push(loadedImage);
 
     if (loaded.length === totalLoads && startFn) {
-      console.log('11. All sprites loaded');
+      console.log("11. All sprites loaded");
       startFn();
     }
   }
@@ -60,11 +64,11 @@ function makeSprites(startFn: () => void) {
         frameHeight: 15,
         animations: {
           engine: {
-            frames: '0..1',
-            frameRate: 15
-          }
-        }
-      }).animations
+            frames: "0..1",
+            frameRate: 15,
+          },
+        },
+      }).animations,
     });
 
     data.sprites.life = Sprite({
@@ -76,15 +80,15 @@ function makeSprites(startFn: () => void) {
         frameHeight: 15,
         animations: {
           engine: {
-            frames: '0',
-            frameRate: 0
-          }
-        }
-      }).animations
-    })
+            frames: "0",
+            frameRate: 0,
+          },
+        },
+      }).animations,
+    });
 
     checkLoaded(data.images.player);
-  }
+  };
 
   data.images[Enemies.enemyBlueOne].src = enemyBlueOnePath;
   data.images[Enemies.enemyBlueOne].onload = function () {
@@ -94,14 +98,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 12,
       animations: {
         engine: {
-          frames: '0..1',
-          frameRate: 10
-        }
-      }
+          frames: "0..1",
+          frameRate: 10,
+        },
+      },
     });
 
     checkLoaded(data.images[Enemies.enemyBlueOne]);
-  }
+  };
 
   data.images[Enemies.enemyGreen].src = enemyGreenPath;
   data.images[Enemies.enemyGreen].onload = function () {
@@ -111,14 +115,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 16,
       animations: {
         engine: {
-          frames: '0..1',
-          frameRate: 10
-        }
-      }
+          frames: "0..1",
+          frameRate: 10,
+        },
+      },
     });
 
     checkLoaded(data.images[Enemies.enemyGreen]);
-  }
+  };
 
   data.images[Enemies.enemyYellowOne].src = enemyYellowOnePath;
   data.images[Enemies.enemyYellowOne].onload = function () {
@@ -128,14 +132,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 11,
       animations: {
         engine: {
-          frames: '0..1',
-          frameRate: 10
-        }
-      }
+          frames: "0..1",
+          frameRate: 10,
+        },
+      },
     });
 
     checkLoaded(data.images[Enemies.enemyYellowTwo]);
-  }
+  };
 
   data.images[Enemies.enemyYellowTwo].src = enemyYellowTwoPath;
   data.images[Enemies.enemyYellowTwo].onload = function () {
@@ -145,14 +149,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 11,
       animations: {
         engine: {
-          frames: '0..1',
-          frameRate: 10
-        }
-      }
+          frames: "0..1",
+          frameRate: 10,
+        },
+      },
     });
 
     checkLoaded(data.images[Enemies.enemyYellowTwo]);
-  }
+  };
 
   data.images[Enemies.enemyPink].src = enemyPinkPath;
   data.images[Enemies.enemyPink].onload = function () {
@@ -162,14 +166,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 16,
       animations: {
         engine: {
-          frames: '0..1',
-          frameRate: 10
-        }
-      }
+          frames: "0..1",
+          frameRate: 10,
+        },
+      },
     });
 
     checkLoaded(data.images[Enemies.enemyPink]);
-  }
+  };
 
   data.images[Enemies.enemyBlueTwo].src = enemyBlueTwoPath;
   data.images[Enemies.enemyBlueTwo].onload = function () {
@@ -179,14 +183,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 13,
       animations: {
         engine: {
-          frames: '0..1',
-          frameRate: 10
-        }
-      }
+          frames: "0..1",
+          frameRate: 10,
+        },
+      },
     });
 
     checkLoaded(data.images[Enemies.enemyBlueTwo]);
-  }
+  };
 
   data.images.enemyBullet.src = enemyBulletPath;
   data.images.enemyBullet.onload = function () {
@@ -196,14 +200,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 3,
       animations: {
         engine: {
-          frames: '0',
-          frameRate: 0
-        }
-      }
+          frames: "0",
+          frameRate: 0,
+        },
+      },
     });
 
     checkLoaded(data.images.enemyBullet);
-  }
+  };
 
   data.images.enemyBomb.src = enemyBombPath;
   data.images.enemyBomb.onload = function () {
@@ -213,14 +217,14 @@ function makeSprites(startFn: () => void) {
       frameHeight: 5,
       animations: {
         engine: {
-          frames: '0..1',
-          frameRate: 4
-        }
-      }
+          frames: "0..1",
+          frameRate: 4,
+        },
+      },
     });
 
     checkLoaded(data.images.enemyBomb);
-  }
+  };
 
   data.images.shield.src = shieldPath;
   data.images.shield.onload = function () {
@@ -230,26 +234,26 @@ function makeSprites(startFn: () => void) {
       frameHeight: 21,
       animations: {
         4: {
-          frames: '0',
-          frameRate: 0
+          frames: "0",
+          frameRate: 0,
         },
         3: {
-          frames: '1',
-          frameRate: 0
+          frames: "1",
+          frameRate: 0,
         },
         2: {
-          frames: '2',
-          frameRate: 0
+          frames: "2",
+          frameRate: 0,
         },
         1: {
-          frames: '3',
-          frameRate: 0
-        }
-      }
+          frames: "3",
+          frameRate: 0,
+        },
+      },
     });
 
     checkLoaded(data.images.shield);
-  }
+  };
 
   data.images.powerups.src = powerupPath;
   data.images.powerups.onload = function () {
@@ -259,68 +263,68 @@ function makeSprites(startFn: () => void) {
       frameHeight: 7,
       animations: {
         wingshot: {
-          frames: '0',
+          frames: "0",
           frameRate: 0,
         },
         trishot: {
-          frames: '1',
-          frameRate: 0
+          frames: "1",
+          frameRate: 0,
         },
         doublerate: {
-          frames: '2',
-          frameRate: 0
+          frames: "2",
+          frameRate: 0,
         },
         bomb: {
-          frames: '3',
-          frameRate: 0
+          frames: "3",
+          frameRate: 0,
         },
         wingbomb: {
-          frames: '4',
-          frameRate: 0
+          frames: "4",
+          frameRate: 0,
         },
         shield: {
-          frames: '5',
-          frameRate: 0
+          frames: "5",
+          frameRate: 0,
         },
         extralife: {
-          frames: '6',
-          frameRate: 0
+          frames: "6",
+          frameRate: 0,
         },
-      }
+      },
     });
 
     checkLoaded(data.images.powerup);
-  }
+  };
 
   data.images.lettersBold.src = lettersBoldPath;
   data.images.lettersBold.onload = () => {
-    checkLoaded(data.images.lettersBold)
-  }
+    checkLoaded(data.images.lettersBold);
+  };
 
   data.images.letters.src = lettersPath;
   data.images.letters.onload = () => {
-    checkLoaded(data.images.letters)
-  }
+    checkLoaded(data.images.letters);
+  };
 
   data.images.lettersFull.src = lettersFullPath;
   data.images.lettersFull.onload = () => {
-    checkLoaded(data.images.lettersFull)
-  }
+    checkLoaded(data.images.lettersFull);
+  };
 
   data.images.numbersBold.src = numbersBoldPath;
   data.images.numbersBold.onload = () => {
-    checkLoaded(data.images.numbersBold)
-  }
+    checkLoaded(data.images.numbersBold);
+  };
 
   data.images.numbers.src = numbersPath;
   data.images.numbers.onload = () => {
-    checkLoaded(data.images.numbers)
-  }
+    checkLoaded(data.images.numbers);
+  };
 
   data.images.explosion.src = explosionPath;
   data.images.explosion.onload = () => {
-    checkLoaded(data.images.explosion)
-  }
+    checkLoaded(data.images.explosion);
+  };
 }
 
 export class Enemy extends SpriteClass {
@@ -340,10 +344,11 @@ export class Enemy extends SpriteClass {
     this.type = properties.type;
     this.points = data.points[this.type];
     this.startTime = state.totalTime;
-    this.spawnAdjust = state.isAndroid && state.currentSectorNumber === 11 ? 2 : 1;
+    this.spawnAdjust =
+      state.isAndroid && state.currentSectorNumber === 11 ? 2 : 1;
 
     if (this.type === Enemies.enemyGreen) {
-      this.shield = getShield(this.x, this.y)
+      this.shield = getShield(this.x, this.y);
       this.shieldIntegrity = 4;
     }
   }
@@ -356,17 +361,17 @@ export class Enemy extends SpriteClass {
     if (this.shield) {
       this.shieldIntegrity -= 1;
     } else {
-      const points = Math.round(this.points * state.scoreMult)
-      scoreDisplay(points, this.x, this.y)
+      const points = Math.round(this.points * state.scoreMult);
+      scoreDisplay(points, this.x, this.y);
       state.score += points;
       this.opacity = 0;
-      adjustFear(-1)
+      adjustFear(-1);
     }
   }
 
   update() {
     this.shield?.update();
-    super.update()
+    super.update();
   }
 
   render() {
@@ -381,16 +386,16 @@ export class Enemy extends SpriteClass {
         this.shield = undefined;
         break;
       case 1:
-        this.shield?.playAnimation('1')
+        this.shield?.playAnimation("1");
         break;
       case 2:
-        this.shield?.playAnimation('2')
+        this.shield?.playAnimation("2");
         break;
       case 3:
-        this.shield?.playAnimation('3')
+        this.shield?.playAnimation("3");
         break;
       case 4:
-        this.shield?.playAnimation('4')
+        this.shield?.playAnimation("4");
         break;
     }
 
@@ -402,17 +407,21 @@ export class Enemy extends SpriteClass {
     switch (this.type) {
       case Enemies.enemyBlueOne:
         if (randInt(0, 500) === 0) {
-          enemyProjectileManager.add(getEnemyLaser(this.x, this.y, { dy: this.dy + 10 }))
+          enemyProjectileManager.add(
+            getEnemyLaser(this.x, this.y, { dy: this.dy + 10 }),
+          );
         }
         break;
       case Enemies.enemyYellowOne:
         if (this.lifespan % (120 * this.spawnAdjust) === 0) {
-          enemyProjectileManager.add(getEnemyBomb(this.x, this.y, { dy: this.ody, dx: this.odx }))
+          enemyProjectileManager.add(
+            getEnemyBomb(this.x, this.y, { dy: this.ody, dx: this.odx }),
+          );
         }
         break;
       case Enemies.enemyBlueTwo:
         if (randInt(0, 250 * this.spawnAdjust) === 0) {
-          enemyProjectileManager.add(getEnemyBullet(this.x, this.y))
+          enemyProjectileManager.add(getEnemyBullet(this.x, this.y));
         }
         break;
       default:
@@ -431,7 +440,7 @@ function getEnemyShip(type: Enemies) {
     scaleY: 10,
     anchor: { x: 0.5, y: 0.5 },
     animations: data.spriteSheets[type]!.animations,
-    type
+    type,
   });
 }
 
@@ -443,10 +452,10 @@ function getBullet(override = {}) {
     y: state.playerY - 100,
     width: 10,
     height: 30,
-    color: 'red',
+    color: "red",
     dy: -20,
-    ...override
-  })
+    ...override,
+  });
 }
 
 function getBomb(override = {}) {
@@ -457,9 +466,9 @@ function getBomb(override = {}) {
     y: state.playerY - 100,
     width: 30,
     height: 30,
-    color: 'orange',
-    ...override
-  })
+    color: "orange",
+    ...override,
+  });
 }
 
 function getEnemyLaser(x: number, y: number, override = {}) {
@@ -468,9 +477,9 @@ function getEnemyLaser(x: number, y: number, override = {}) {
     y,
     width: 10,
     height: 100,
-    color: '#ff00ff',
-    ...override
-  })
+    color: "#ff00ff",
+    ...override,
+  });
 }
 
 function getEnemyBomb(x: number, y: number, override = {}) {
@@ -480,74 +489,83 @@ function getEnemyBomb(x: number, y: number, override = {}) {
     scaleX: 10,
     scaleY: 10,
     animations: data.spriteSheets.enemyBomb?.animations,
-    ...override
-  })
+    ...override,
+  });
 }
 
-export function scoreDisplay(num: number, x: number, y: number, isPowerup: boolean = false) {
+export function scoreDisplay(
+  num: number,
+  x: number,
+  y: number,
+  isPowerup: boolean = false,
+) {
   let manager = isPowerup ? scoreMultDisplayManager : scoreDisplayManager;
   let dxDir;
 
   if (isPowerup) {
     dxDir = 1;
-
   } else {
-    dxDir = (!!randInt(0, 1) ? -1 : 1);
+    dxDir = !!randInt(0, 1) ? -1 : 1;
   }
 
   const dx = (isPowerup ? 0 : randInt(3, 7)) * dxDir;
   const dy = isPowerup ? -1 : -randInt(4, 8);
 
   const options = {
-    opacity: isPowerup ? 1 : .8,
+    opacity: isPowerup ? 1 : 0.8,
     anchor: { x: 0, y: 0 },
     dx,
     dy,
-  }
+  };
 
-  let _x = (isPowerup ? data.sprites.player.x : x) * .1 + (isPowerup ? 8 : 0);
-  let _y = (isPowerup ? data.sprites.player.y : y) * .1 - (isPowerup ? 10 : 0);
+  let _x = (isPowerup ? data.sprites.player.x : x) * 0.1 + (isPowerup ? 8 : 0);
+  let _y = (isPowerup ? data.sprites.player.y : y) * 0.1 - (isPowerup ? 10 : 0);
 
-  if (isPowerup) manager.add(getText('x', _x - 3, _y + 1, { ...options, scale: 7 }));
-  manager.add(getNumbers((num).toString(), _x, _y, { ...options }));
+  if (isPowerup)
+    manager.add(getText("x", _x - 3, _y + 1, { ...options, scale: 7 }));
+  manager.add(getNumbers(num.toString(), _x, _y, { ...options }));
 }
 
 const commsSprite = Sprite({
-  x: 30, width: WIDTH - 60, y: 800, height: 800, color: 'black',
+  x: 30,
+  width: WIDTH - 60,
+  y: 800,
+  height: 800,
+  color: "black",
   render: function () {
     this.draw();
-    this.context!.strokeStyle = 'white';
+    this.context!.strokeStyle = "white";
     this.context!.lineWidth = 10;
     this.context!.strokeRect(0, 0, this.width!, this.height!);
-  }
-})
+  },
+});
 
 const fearSprite = Sprite({
   x: 22 * SCALE,
   y: 256 * SCALE,
-  width: WIDTH - (26 * SCALE),
+  width: WIDTH - 26 * SCALE,
   height: 7 * SCALE,
-  color: 'black',
+  color: "black",
   render: function () {
     this.draw();
-    this.context!.strokeStyle = 'white';
+    this.context!.strokeStyle = "white";
     this.context!.lineWidth = 10;
     this.context!.strokeRect(0, 0, this.width!, this.height!);
-  }
-})
+  },
+});
 
 const fearSpriteInner = Sprite({
   x: fearSprite.x + 20,
   y: fearSprite.y + 25,
   width: fearSprite.width - 40,
   height: fearSprite.height - 50,
-  color: 'white',
-})
+  color: "white",
+});
 
 function adjustFear(amount: number = 0) {
   state.fear = clamp(0, 100, state.fear + amount);
-  state.rofAdjust = Math.ceil((0 + state.fear) / 10) || 0
-  state.rngAdjust = Math.floor(0 + state.fear) * 4 || 0
+  state.rofAdjust = Math.ceil((0 + state.fear) / 10) || 0;
+  state.rngAdjust = Math.floor(0 + state.fear) * 4 || 0;
   fearSpriteInner.width = (fearSprite.width - 40) * (state.fear / 100);
 }
 
@@ -556,8 +574,8 @@ export class EnemyBullet extends SpriteClass {
   speed: number;
 
   constructor(properties: any) {
-    super(properties)
-    this.angle = angleToTarget(this, data.sprites.player)
+    super(properties);
+    this.angle = angleToTarget(this, data.sprites.player);
     this.speed = state.isAndroid && state.currentSectorNumber === 11 ? 5 : 20;
   }
 
@@ -565,7 +583,7 @@ export class EnemyBullet extends SpriteClass {
     const { x, y } = movePoint(this, this.angle, this.speed);
     this.x = x;
     this.y = y;
-    super.draw()
+    super.draw();
   }
 }
 
@@ -576,21 +594,35 @@ function getEnemyBullet(x: number, y: number, override = {}) {
     scaleX: 10,
     scaleY: 10,
     animations: data.spriteSheets.enemyBullet?.animations,
-    ...override
-  })
+    ...override,
+  });
 }
 
-function getPowerup(x: number, y: number, override?: number): Sprite | undefined {
+function getPowerup(
+  x: number,
+  y: number,
+  override?: number,
+): Sprite | undefined {
   const prob = override || randInt(1, 1000 - state.rngAdjust);
 
   // No shield renew
-  if (!override && state.playershield > 0 && prob >= data.powerupprobability.shield[0] && prob <= data.powerupprobability.shield[1]) {
-    return
-
+  if (
+    !override &&
+    state.playershield > 0 &&
+    prob >= data.powerupprobability.shield[0] &&
+    prob <= data.powerupprobability.shield[1]
+  ) {
+    return;
   }
 
-  for (const [key, [lowBound, highBound, firstSectorAllowed]] of Object.entries(data.powerupprobability)) {
-    if (prob >= lowBound && prob <= highBound && state.currentSectorNumber >= firstSectorAllowed) {
+  for (const [key, [lowBound, highBound, firstSectorAllowed]] of Object.entries(
+    data.powerupprobability,
+  )) {
+    if (
+      prob >= lowBound &&
+      prob <= highBound &&
+      state.currentSectorNumber >= firstSectorAllowed
+    ) {
       const s = Sprite({
         x,
         y,
@@ -599,7 +631,7 @@ function getPowerup(x: number, y: number, override?: number): Sprite | undefined
         width: 7,
         height: 7,
         dy: randInt(2, 9),
-        animations: data.spriteSheets.powerups?.animations
+        animations: data.spriteSheets.powerups?.animations,
       });
 
       s.playAnimation(key);
@@ -627,19 +659,19 @@ function getExplosion(x: number, y: number) {
       frameHeight: 15,
       animations: {
         explode: {
-          frames: '0..2',
+          frames: "0..2",
           frameRate: 8,
-          loop: false
-        }
-      }
-    }).animations
-  })
+          loop: false,
+        },
+      },
+    }).animations,
+  });
 }
 
 function getLife(x: number) {
   return Sprite({
     y: 230,
-    x: WIDTH - ((18 * 6) * (1 + x)),
+    x: WIDTH - 18 * 6 * (1 + x),
     scaleX: 6,
     scaleY: 6,
     anchor: { x: 0.5, y: 0.5 },
@@ -649,12 +681,12 @@ function getLife(x: number) {
       frameHeight: 15,
       animations: {
         engine: {
-          frames: '0',
-          frameRate: 0
-        }
-      }
-    }).animations
-  })
+          frames: "0",
+          frameRate: 0,
+        },
+      },
+    }).animations,
+  });
 }
 
 function getShield(x: number, y: number, overrides = {}) {
@@ -665,74 +697,90 @@ function getShield(x: number, y: number, overrides = {}) {
     scaleY: SCALE,
     anchor: { x: 0.5, y: 0.5 },
     animations: data.spriteSheets.shield?.animations,
-    ...overrides
-  })
+    ...overrides,
+  });
 }
 
 type TextType = {
-  image: HTMLImageElement,
-  letterWidth: number,
-  letterHeight: number,
-  characters: string,
-}
+  image: HTMLImageElement;
+  letterWidth: number;
+  letterHeight: number;
+  characters: string;
+};
 
 const textTypes: Record<string, TextType> = {
   letterBold: {
     image: data.images.lettersBold,
     letterWidth: 7,
     letterHeight: 8,
-    characters: 'ACDEGHILMNOPRSTUVWY',
+    characters: "ACDEGHILMNOPRSTUVWY",
   },
   letter: {
     image: data.images.letters,
     letterWidth: 4,
     letterHeight: 5,
-    characters: 'ceorst',
+    characters: "ceorst",
   },
   letterFull: {
     image: data.images.lettersFull,
     letterWidth: 4,
     letterHeight: 5,
-    characters: 'abcdefghijklmnopqrstuvwxyz',
+    characters: "abcdefghijklmnopqrstuvwxyz",
   },
   numberBold: {
     image: data.images.numbersBold,
     letterWidth: 7,
     letterHeight: 8,
-    characters: '13',
+    characters: "13",
   },
   number: {
     image: data.images.numbers,
     letterWidth: 4,
     letterHeight: 5,
-    characters: '0123456789',
+    characters: "0123456789",
   },
-}
+};
 
 type Options = {
   bold?: boolean;
   scale?: number;
   button?: boolean;
   sectorButton?: boolean;
-  anchor?: { x: number, y: number };
+  anchor?: { x: number; y: number };
   dx?: number;
   dy?: number;
-}
+};
 
-function getTextSprite(text: string, x: number, y: number, type: TextType, options: Options = {}) {
+function getTextSprite(
+  text: string,
+  x: number,
+  y: number,
+  type: TextType,
+  options: Options = {},
+) {
   text = options.bold ? text.toUpperCase() : text;
   const { letterWidth, letterHeight, characters, image } = type;
-  const textCanvas = document.createElement('canvas') as HTMLCanvasElement;
-  const context = textCanvas.getContext('2d')!;
+  const textCanvas = document.createElement("canvas") as HTMLCanvasElement;
+  const context = textCanvas.getContext("2d")!;
   textCanvas.height = letterHeight;
   textCanvas.width = letterWidth * text.length;
-  const textArr = text.split('');
+  const textArr = text.split("");
 
   for (let i = 0; i < textArr.length; i += 1) {
     const char = textArr[i];
     const charIndex = characters.indexOf(char);
 
-    context.drawImage(image, charIndex * letterWidth, 0, letterWidth, letterHeight, i * letterWidth, 0, letterWidth, letterHeight);
+    context.drawImage(
+      image,
+      charIndex * letterWidth,
+      0,
+      letterWidth,
+      letterHeight,
+      i * letterWidth,
+      0,
+      letterWidth,
+      letterHeight,
+    );
   }
 
   return Sprite({
@@ -749,19 +797,30 @@ function getTextSprite(text: string, x: number, y: number, type: TextType, optio
       this.draw();
       if (options.button || options.sectorButton) {
         // outline the game object
-        this.context!.strokeStyle = 'white';
+        this.context!.strokeStyle = "white";
         this.context!.lineWidth = 1;
-        this.context!.strokeRect(-2, -2, this.width! + (options.bold ? 2 : 3), this.height! + (options.sectorButton ? 10 : 4));
+        this.context!.strokeRect(
+          -2,
+          -2,
+          this.width! + (options.bold ? 2 : 3),
+          this.height! + (options.sectorButton ? 10 : 4),
+        );
       }
-    }
+    },
   });
 }
 
-const getScoreText = (score?: number) => (new Array(10 - (score || state.score).toString().length).fill(0).join('') + (score || state.score).toString());
-const getBoldText = (text: string, x: number, y: number, options?: {}) => getTextSprite(text, x, y, textTypes.letterBold, { ...options, bold: true });
-const getText = (text: string, x: number, y: number, options?: {}) => getTextSprite(text, x, y, textTypes.letterFull, options);
-const getBoldNumbers = (text: string, x: number, y: number, options?: {}) => getTextSprite(text, x, y, textTypes.numberBold, { ...options, bold: true });
-const getNumbers = (text: string, x: number, y: number, options?: {}) => getTextSprite(text, x, y, textTypes.number, options);
+const getScoreText = (score?: number) =>
+  new Array(10 - (score || state.score).toString().length).fill(0).join("") +
+  (score || state.score).toString();
+const getBoldText = (text: string, x: number, y: number, options?: {}) =>
+  getTextSprite(text, x, y, textTypes.letterBold, { ...options, bold: true });
+const getText = (text: string, x: number, y: number, options?: {}) =>
+  getTextSprite(text, x, y, textTypes.letterFull, options);
+const getBoldNumbers = (text: string, x: number, y: number, options?: {}) =>
+  getTextSprite(text, x, y, textTypes.numberBold, { ...options, bold: true });
+const getNumbers = (text: string, x: number, y: number, options?: {}) =>
+  getTextSprite(text, x, y, textTypes.number, options);
 const getScore = (score?: number) => getNumbers(getScoreText(score), 5, 18);
 
 export {
@@ -785,5 +844,5 @@ export {
   fearSprite,
   fearSpriteInner,
   adjustFear,
-  getScoreText
+  getScoreText,
 };
