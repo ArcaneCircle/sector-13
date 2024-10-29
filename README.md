@@ -71,7 +71,7 @@ git push origin v1.0.1
 
 ## Credits
 
-- This is a port to Webxdc of [SECTOR-13](https://github.com/BenjaminWFox/Sector-13-Js13k-2024) originally written by [BenjaminWFox](https://github.com/BenjaminWFox) for [js13k 2024](https://js13kgames.com/) game jam
+This is a port to Webxdc of [SECTOR-13](https://github.com/BenjaminWFox/Sector-13-Js13k-2024) originally written by [BenjaminWFox](https://github.com/BenjaminWFox) for [js13k 2024](https://js13kgames.com/) game jam
 
 ### Acknowledgements
 
