@@ -1,4 +1,4 @@
-import "webxdc-scores";
+import "@webxdc/highscores";
 import { init, GameLoop, lerp, setStoreItem, Sprite } from "kontra";
 import { state } from "./state";
 import {
